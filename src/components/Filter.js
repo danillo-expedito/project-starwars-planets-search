@@ -3,7 +3,7 @@ import FilterContext from '../context/filterContext';
 
 function Filter() {
   const { selected, setSelected,
-    activeFilters, handleFilter } = useContext(FilterContext);
+    activeFilters, HandleFilter, options } = useContext(FilterContext);
 
   return (
     <div>
@@ -14,13 +14,14 @@ function Filter() {
           onChange={ (e) => setSelected({ ...selected, column: e.target.value }) }
         >
           {/* <option selected hidden>Choose an option</option> */}
-          { ['population', 'orbital_period',
-            'diameter', 'rotation_period', 'surface_water']
-            .map((columnOption) => (
-              <option value={ columnOption } key={ columnOption }>
-                { columnOption }
-              </option>
-            ))}
+          {
+            options
+              .map((columnOption) => (
+                <option value={ columnOption } key={ columnOption }>
+                  { columnOption }
+                </option>
+              ))
+          }
         </select>
         <select
           data-testid="comparison-filter"
@@ -41,7 +42,7 @@ function Filter() {
         <button
           type="button"
           data-testid="button-filter"
-          onClick={ handleFilter }
+          onClick={ () => HandleFilter(selected.column) }
         >
           Filtrar
         </button>

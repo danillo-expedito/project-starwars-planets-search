@@ -9,11 +9,27 @@ function FilterProvider({ children }) {
     value: 0,
   });
 
+  const [options, setOptions] = useState(['population', 'orbital_period',
+    'diameter', 'rotation_period', 'surface_water']);
+
   const [activeFilters, setActiveFilters] = useState([]);
 
-  const handleFilter = () => {
-    setActiveFilters([...activeFilters, selected]);
+  const removeOption = (op) => {
+    const newOptions = options.filter((option) => option !== op);
+
+    setOptions(newOptions);
+    setSelected({
+      column: options[0],
+      comparison: 'maior que',
+      value: 0,
+    });
   };
+
+  function HandleFilter(op) {
+    setActiveFilters([...activeFilters, selected]);
+
+    removeOption(op);
+  }
 
   const handleFilterCases = (planet) => {
     const conditions = [];
@@ -21,13 +37,13 @@ function FilterProvider({ children }) {
     activeFilters.forEach((filter) => {
       switch (filter.comparison) {
       case 'maior que':
-        conditions.push((+planet[filter.column]) > (+filter.value));
+        conditions.push(Number(planet[filter.column]) > Number(filter.value));
         break;
       case 'menor que':
-        conditions.push((+planet[filter.column]) < (+filter.value));
+        conditions.push(Number(planet[filter.column]) < Number(filter.value));
         break;
       case 'igual a':
-        conditions.push((+planet[filter.column]) === (+filter.value));
+        conditions.push(Number(planet[filter.column]) === Number(filter.value));
         break;
       default:
         return true;
@@ -46,8 +62,9 @@ function FilterProvider({ children }) {
         { selected,
           setSelected,
           activeFilters,
-          handleFilter,
-          handleFilterCases }
+          HandleFilter,
+          handleFilterCases,
+          options }
       }
     >
       { children }
