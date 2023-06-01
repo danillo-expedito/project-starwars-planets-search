@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import useFetch from '../hooks/useFetch';
+import FormContext from '../context/formContext';
 
 function Table() {
   const { DATA } = useFetch();
+  const { search } = useContext(FormContext);
 
   return (
     <div>
@@ -20,7 +23,7 @@ function Table() {
               </tr>
             </thead>
             <tbody>
-              { DATA
+              { DATA.filter((planet) => planet.name.toLowerCase().includes(search))
                 .map((planet, index) => (
                   <tr key={ index }>
                     <td>{planet.name}</td>
