@@ -13,7 +13,7 @@ function Filter() {
           value={ selected.column }
           onChange={ (e) => setSelected({ ...selected, column: e.target.value }) }
         >
-          <option selected hidden>Choose an option</option>
+          {/* <option selected hidden>Choose an option</option> */}
           { ['population', 'orbital_period',
             'diameter', 'rotation_period', 'surface_water']
             .map((columnOption) => (
@@ -27,7 +27,7 @@ function Filter() {
           value={ selected.comparison }
           onChange={ (e) => setSelected({ ...selected, comparison: e.target.value }) }
         >
-          <option selected hidden>Choose an option</option>
+          {/* <option selected hidden>Choose an option</option> */}
           <option value="maior que">maior que</option>
           <option value="menor que">menor que</option>
           <option value="igual a">igual a</option>

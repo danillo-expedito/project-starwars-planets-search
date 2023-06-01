@@ -4,9 +4,9 @@ import FilterContext from './filterContext';
 
 function FilterProvider({ children }) {
   const [selected, setSelected] = useState({
-    column: '',
-    comparison: '',
-    value: '',
+    column: 'population',
+    comparison: 'maior que',
+    value: 0,
   });
 
   const [activeFilters, setActiveFilters] = useState([]);
@@ -15,13 +15,39 @@ function FilterProvider({ children }) {
     setActiveFilters([...activeFilters, selected]);
   };
 
+  const handleFilterCases = (planet) => {
+    const conditions = [];
+
+    activeFilters.forEach((filter) => {
+      switch (filter.comparison) {
+      case 'maior que':
+        conditions.push((+planet[filter.column]) > (+filter.value));
+        break;
+      case 'menor que':
+        conditions.push((+planet[filter.column]) < (+filter.value));
+        break;
+      case 'igual a':
+        conditions.push((+planet[filter.column]) === (+filter.value));
+        break;
+      default:
+        return true;
+      }
+    });
+
+    return conditions.every((con) => con);
+  };
+
+  // const handleFilterOptions = (option) => !activeFilters
+  //   .find((filter) => option === filter.column);
+
   return (
     <FilterContext.Provider
       value={
         { selected,
           setSelected,
           activeFilters,
-          handleFilter }
+          handleFilter,
+          handleFilterCases }
       }
     >
       { children }
