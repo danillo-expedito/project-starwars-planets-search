@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
 import Table from './components/Table';
-import NameInput from './components/NameInput';
+import Filter from './components/Filter';
+import SearchInput from './components/SearchInput';
 
 function App() {
   return (
     <>
       <span>Hello, App!</span>
-      <NameInput />
+      <SearchInput />
+      <Filter />
       <Table />
     </>
   );

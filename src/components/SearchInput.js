@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import FormContext from '../context/formContext';
 
-function NameInput() {
+function SearchInput() {
   const { search, handleChange } = useContext(FormContext);
 
   return (
@@ -18,4 +18,4 @@ function NameInput() {
   );
 }
 
-export default NameInput;
+export default SearchInput;
