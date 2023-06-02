@@ -9,12 +9,13 @@ function FilterProvider({ children }) {
     value: 0,
   });
 
-  const [options, setOptions] = useState(['population', 'orbital_period',
-    'diameter', 'rotation_period', 'surface_water']);
+  const arrayOfOptions = ['population', 'orbital_period',
+    'diameter', 'rotation_period', 'surface_water'];
+  const [options, setOptions] = useState(arrayOfOptions);
 
   const [activeFilters, setActiveFilters] = useState([]);
 
-  const removeOption = (op) => {
+  function RemoveOption(op) {
     const newOptions = options.filter((option) => option !== op);
 
     setOptions(newOptions);
@@ -23,15 +24,27 @@ function FilterProvider({ children }) {
       comparison: 'maior que',
       value: 0,
     });
-  };
+  }
 
   function HandleFilter(op) {
     setActiveFilters([...activeFilters, selected]);
 
-    removeOption(op);
+    RemoveOption(op);
   }
 
-  const handleFilterCases = (planet) => {
+  function RemoveFilters(filter) {
+    if (!filter) {
+      setActiveFilters([]);
+      setOptions(arrayOfOptions);
+    } else {
+      const newActiveFilters = activeFilters
+        .filter((active) => active.column !== filter);
+      setActiveFilters(newActiveFilters);
+      setOptions([...options, filter]);
+    }
+  }
+
+  function HandleFilterCases(planet) {
     const conditions = [];
 
     activeFilters.forEach((filter) => {
@@ -51,10 +64,7 @@ function FilterProvider({ children }) {
     });
 
     return conditions.every((con) => con);
-  };
-
-  // const handleFilterOptions = (option) => !activeFilters
-  //   .find((filter) => option === filter.column);
+  }
 
   return (
     <FilterContext.Provider
@@ -63,8 +73,9 @@ function FilterProvider({ children }) {
           setSelected,
           activeFilters,
           HandleFilter,
-          handleFilterCases,
-          options }
+          HandleFilterCases,
+          options,
+          RemoveFilters }
       }
     >
       { children }

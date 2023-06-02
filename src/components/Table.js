@@ -6,7 +6,7 @@ import FilterContext from '../context/filterContext';
 function Table() {
   const { DATA } = useFetch();
   const { search } = useContext(FormContext);
-  const { handleFilterCases } = useContext(FilterContext);
+  const { HandleFilterCases } = useContext(FilterContext);
 
   return (
     <div>
@@ -26,7 +26,7 @@ function Table() {
             </thead>
             <tbody>
               { DATA.filter((planet) => planet.name.toLowerCase().includes(search))
-                .filter(handleFilterCases)
+                .filter(HandleFilterCases)
                 .map((planet, index) => (
                   <tr key={ index }>
                     <td>{planet.name}</td>

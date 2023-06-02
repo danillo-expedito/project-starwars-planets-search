@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import FilterContext from '../context/filterContext';
 
 function Filter() {
-  const { selected, setSelected,
+  const { selected, setSelected, RemoveFilters,
     activeFilters, HandleFilter, options } = useContext(FilterContext);
 
   return (
@@ -50,18 +50,29 @@ function Filter() {
       { activeFilters.length > 0
         && (
           <div>
-            <p>Filtros ativos:</p>
-            <div>
-              { activeFilters.map((filter, index) => (
-                <p
-                  key={ index }
-                >
+            <h3>Filtros ativos:</h3>
+            { activeFilters.map((filter, index) => (
+              <div key={ index }>
+                <p data-testid="filter">
                   { `${filter.column} ${filter.comparison} = ${filter.value}` }
+                  <button
+                    type="button"
+                    onClick={ () => RemoveFilters(filter.column) }
+                  >
+                    Excluir
+                  </button>
                 </p>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         )}
+      <button
+        type="button"
+        onClick={ () => RemoveFilters() }
+        data-testid="button-remove-filters"
+      >
+        Remover Filtros
+      </button>
     </div>
   );
 }
