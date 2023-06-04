@@ -2,11 +2,13 @@ import { useContext } from 'react';
 import useFetch from '../hooks/useFetch';
 import FormContext from '../context/formContext';
 import FilterContext from '../context/filterContext';
+import SortContext from '../context/sortContext';
 
 function Table() {
   const { DATA } = useFetch();
   const { search } = useContext(FormContext);
   const { HandleFilterCases } = useContext(FilterContext);
+  const { SortBy } = useContext(SortContext);
 
   return (
     <div>
@@ -27,9 +29,10 @@ function Table() {
             <tbody>
               { DATA.filter((planet) => planet.name.toLowerCase().includes(search))
                 .filter(HandleFilterCases)
+                .sort((a, b) => SortBy(a, b))
                 .map((planet, index) => (
                   <tr key={ index }>
-                    <td>{planet.name}</td>
+                    <td data-testid="planet-name">{planet.name}</td>
                     <td>{planet.rotation_period}</td>
                     <td>{planet.orbital_period}</td>
                     <td>{planet.diameter}</td>
