@@ -8,7 +8,8 @@ import Sort from './components/Sort';
 function App() {
   return (
     <>
-      <span>Hello, App!</span>
+      <h1>STAR WARS</h1>
+      <h4>planet search</h4>
       <SearchInput />
       <Filter />
       <Sort />

@@ -10,7 +10,6 @@ function useFetch() {
     const { results } = responseJSON;
     results.forEach((planet) => delete planet.residents);
 
-    console.log(results);
     setData(results);
   };
 

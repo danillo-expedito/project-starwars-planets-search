@@ -10,6 +10,7 @@ function Filter() {
       <form>
         <select
           data-testid="column-filter"
+          name="column-filter"
           value={ selected.column }
           onChange={ (e) => setSelected({ ...selected, column: e.target.value }) }
         >

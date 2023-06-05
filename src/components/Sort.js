@@ -32,7 +32,7 @@ function Sort() {
         checked={ radio === 'ASC' }
         onChange={ (e) => setRadio(e.target.value) }
       />
-      <label htmlFor="dsc">Descendente</label>
+      <label htmlFor="desc">Descendente</label>
       <input
         type="radio"
         name="sort-radio"
