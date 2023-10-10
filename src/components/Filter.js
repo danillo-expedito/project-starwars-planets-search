@@ -3,12 +3,19 @@ import FilterContext from '../context/filterContext';
 
 function Filter() {
   const { selected, setSelected, RemoveFilters,
-    activeFilters, HandleFilter, options } = useContext(FilterContext);
+    HandleFilter, options } = useContext(FilterContext);
 
   return (
-    <div>
-      <form>
+    <div className="flex flex-row gap-2">
+      <form className="flex flex-row gap-2">
         <select
+          className="bg-zinc-950
+          text-yellow-300
+          font-normal
+          text-center rounded
+          w-44
+          h-6
+          focus: outline-yellow-300"
           data-testid="column-filter"
           name="column-filter"
           value={ selected.column }
@@ -25,6 +32,13 @@ function Filter() {
           }
         </select>
         <select
+          className="bg-zinc-950
+                  text-yellow-300
+                  font-normal
+                  w-32
+                  h-6
+                  text-center rounded
+                  focus: outline-yellow-300"
           data-testid="comparison-filter"
           value={ selected.comparison }
           onChange={ (e) => setSelected({ ...selected, comparison: e.target.value }) }
@@ -35,6 +49,13 @@ function Filter() {
           <option value="igual a">igual a</option>
         </select>
         <input
+          className="bg-zinc-950
+                  text-yellow-300
+                  font-normal
+                  text-center rounded
+                  w-28
+                  h-6
+                  focus: outline-yellow-300"
           type="number"
           data-testid="value-filter"
           value={ selected.value }
@@ -44,33 +65,42 @@ function Filter() {
           type="button"
           data-testid="button-filter"
           onClick={ () => HandleFilter(selected.column) }
+          className="bg-gradient-to-r
+          from-yellow-200
+          via-yellow-400 via-18%
+          to-yellow-300 to-40%
+          uppercase
+          text-sm
+          w-28 h-6
+          text-zinc-900
+          font-bold
+          border-2 border-zinc-950
+          shadow-md
+          shadow-black
+          active:shadow-none
+          rounded"
         >
           Filtrar
         </button>
       </form>
-      { activeFilters.length > 0
-        && (
-          <div>
-            <h3>Filtros ativos:</h3>
-            { activeFilters.map((filter, index) => (
-              <div key={ index }>
-                <p data-testid="filter">
-                  { `${filter.column} ${filter.comparison} = ${filter.value}` }
-                  <button
-                    type="button"
-                    onClick={ () => RemoveFilters(filter.column) }
-                  >
-                    Excluir
-                  </button>
-                </p>
-              </div>
-            ))}
-          </div>
-        )}
       <button
         type="button"
         onClick={ () => RemoveFilters() }
         data-testid="button-remove-filters"
+        className="bg-gradient-to-r
+          from-yellow-200
+          via-yellow-400 via-28%
+          to-yellow-300 to-60%
+          w-40 h-6
+          text-sm
+          uppercase
+          text-zinc-900
+          font-bold
+          border-2 border-zinc-950
+          shadow-md
+          shadow-black
+          active:shadow-none
+          rounded"
       >
         Remover Filtros
       </button>
