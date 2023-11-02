@@ -1,0 +1,168 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-05-31T22:31:50.227Z",
+    "end": "2023-05-31T22:31:51.457Z",
+    "duration": 1230,
+    "testsRegistered": 4,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 3,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "84ff83a4-d862-4042-a920-30e8cf82f051",
+      "title": "",
+      "fullFile": "cypress/e2e/01.starwarsApi.cy.js",
+      "file": "cypress/e2e/01.starwarsApi.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4eb8506a-7f23-4c6c-8118-4c0ad1346d2e",
+          "title": "1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos da coluna `residents`",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Realize uma requisição para a API",
+              "fullTitle": "1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos da coluna `residents` Realize uma requisição para a API",
+              "timedOut": null,
+              "duration": 311,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('@mockFetch').should('be.called');",
+              "err": {
+                "message": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > movies.map is not a function\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `1 - Faça uma requisição par...`",
+                "estack": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > movies.map is not a function\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `1 - Faça uma requisição par...`\n    at Home (http://localhost:3000/static/js/bundle.js:666:24)\n    at renderWithHooks (http://localhost:3000/static/js/bundle.js:24278:22)\n    at updateFunctionComponent (http://localhost:3000/static/js/bundle.js:27160:24)\n    at beginWork (http://localhost:3000/static/js/bundle.js:28872:20)\n    at HTMLUnknownElement.callCallback (http://localhost:3000/static/js/bundle.js:13870:18)\n    at Object.invokeGuardedCallbackDev (http://localhost:3000/static/js/bundle.js:13914:20)\n    at invokeGuardedCallback (http://localhost:3000/static/js/bundle.js:13971:35)\n    at beginWork$1 (http://localhost:3000/static/js/bundle.js:33845:11)\n    at performUnitOfWork (http://localhost:3000/static/js/bundle.js:33092:16)\n    at workLoopSync (http://localhost:3000/static/js/bundle.js:33015:9)",
+                "diff": null
+              },
+              "uuid": "2c869950-a820-4c5f-b0d4-023f2e32976f",
+              "parentUUID": "4eb8506a-7f23-4c6c-8118-4c0ad1346d2e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Preencha a tabela com os dados retornados",
+              "fullTitle": "1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos da coluna `residents` Preencha a tabela com os dados retornados",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "planets.forEach(planet => {\n  cy.contains(planet.name);\n  cy.contains(planet.rotation_period);\n  cy.contains(planet.orbital_period);\n  cy.contains(planet.diameter);\n  cy.contains(planet.climate);\n  cy.contains(planet.gravity);\n  cy.contains(planet.terrain);\n  cy.contains(planet.surface_water);\n  cy.contains(planet.population);\n});",
+              "err": {},
+              "uuid": "64c354f0-990c-4ce2-a69a-0aa5b11c78ec",
+              "parentUUID": "4eb8506a-7f23-4c6c-8118-4c0ad1346d2e",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Verifique se a tabela tem 13 colunas",
+              "fullTitle": "1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos da coluna `residents` Verifique se a tabela tem 13 colunas",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// a requisição (mock) retorna 14 chaves em cada planeta, mas a chave `residents` não deve ser exibida totalizando 13 colunas\ncy.get('table tr:first th').should('have.length', MAX_COLUMNS_COUNT);",
+              "err": {},
+              "uuid": "ffa389ff-fc24-4594-b745-b4c5122a8f96",
+              "parentUUID": "4eb8506a-7f23-4c6c-8118-4c0ad1346d2e",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Verifique se a tabela tem uma linha para cada planeta retornado",
+              "fullTitle": "1 - Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos da coluna `residents` Verifique se a tabela tem uma linha para cada planeta retornado",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// a requisição (mock) retorna 10 planetas, somando com mais um linha do header totalizando 11 linhas\ncy.get('table tr').should('have.length', planets.length + 1);",
+              "err": {},
+              "uuid": "b81c5fb8-22f1-40fe-addc-57966a2df496",
+              "parentUUID": "4eb8506a-7f23-4c6c-8118-4c0ad1346d2e",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2c869950-a820-4c5f-b0d4-023f2e32976f"
+          ],
+          "pending": [],
+          "skipped": [
+            "64c354f0-990c-4ce2-a69a-0aa5b11c78ec",
+            "ffa389ff-fc24-4594-b745-b4c5122a8f96",
+            "b81c5fb8-22f1-40fe-addc-57966a2df496"
+          ],
+          "duration": 311,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

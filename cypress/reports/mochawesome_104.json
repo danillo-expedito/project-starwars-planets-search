@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-06-02T22:30:34.996Z",
+    "end": "2023-06-02T22:30:37.762Z",
+    "duration": 2766,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "90ef3b36-a251-4a40-ab89-6067eb8abfb4",
+      "title": "",
+      "fullFile": "cypress/e2e/09.sortPlanets.cy.js",
+      "file": "cypress/e2e/09.sortPlanets.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9ec77ea7-eabf-4080-aabd-baca132a234a",
+          "title": "9 - Ordene as colunas de forma ascendente ou descendente",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ordene os planetas do maior período orbital para o menor período orbital",
+              "fullTitle": "9 - Ordene as colunas de forma ascendente ou descendente Ordene os planetas do maior período orbital para o menor período orbital",
+              "timedOut": null,
+              "duration": 605,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "sortByColumn('orbital_period', 'desc');\nconst expectedPlanets = ['Bespin', 'Yavin IV', 'Hoth', 'Kamino', 'Endor', 'Coruscant', 'Alderaan', 'Dagobah', 'Naboo', 'Tatooine'];\ncy.getByTestId(_dataTestIds.PLANET_NAME).each((el, index) => {\n  expect(el).to.contain(expectedPlanets[index]);\n});",
+              "err": {},
+              "uuid": "60f625fb-dd51-4d6d-bc51-53bcec4f6d70",
+              "parentUUID": "9ec77ea7-eabf-4080-aabd-baca132a234a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ordene os planetas do menor diâmetro para o maior diâmetro",
+              "fullTitle": "9 - Ordene as colunas de forma ascendente ou descendente Ordene os planetas do menor diâmetro para o maior diâmetro",
+              "timedOut": null,
+              "duration": 416,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "sortByColumn('diameter', 'asc');\nconst expectedPlanets = ['Endor', 'Hoth', 'Dagobah', 'Yavin IV', 'Tatooine', 'Naboo', 'Coruscant', 'Alderaan', 'Kamino', 'Bespin'];\ncy.getByTestId(_dataTestIds.PLANET_NAME).each((el, index) => {\n  expect(el).to.contain(expectedPlanets[index]);\n});",
+              "err": {},
+              "uuid": "f055177b-ed4c-4351-a8dc-76fdece7675e",
+              "parentUUID": "9ec77ea7-eabf-4080-aabd-baca132a234a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ordene os planetas do mais populoso para o menos populoso",
+              "fullTitle": "9 - Ordene as colunas de forma ascendente ou descendente Ordene os planetas do mais populoso para o menos populoso",
+              "timedOut": null,
+              "duration": 414,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "sortByColumn('population', 'desc');\nconst expectedPlanets = ['Coruscant', 'Naboo', 'Alderaan', 'Kamino', 'Endor', 'Bespin', 'Tatooine', 'Yavin IV'];\nconst expectedPlanetsWithUnknownValues = ['Dagobah', 'Hoth'];\ncy.getByTestId(_dataTestIds.PLANET_NAME).each((el, index) => {\n  if (expectedPlanets[index]) {\n    expect(el).to.contain(expectedPlanets[index]);\n  } else {\n    expect(el.text()).to.be.oneOf(expectedPlanetsWithUnknownValues);\n  }\n});",
+              "err": {},
+              "uuid": "6fabb2d0-0750-4a5a-a4e8-0fd1bf828ba2",
+              "parentUUID": "9ec77ea7-eabf-4080-aabd-baca132a234a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ordene os planetas do menos populoso para o mais populoso",
+              "fullTitle": "9 - Ordene as colunas de forma ascendente ou descendente Ordene os planetas do menos populoso para o mais populoso",
+              "timedOut": null,
+              "duration": 412,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "sortByColumn('population', 'asc');\nconst expectedPlanets = ['Yavin IV', 'Tatooine', 'Bespin', 'Endor', 'Kamino', 'Alderaan', 'Naboo', 'Coruscant'];\nconst expectedPlanetsWithUnknownValues = ['Dagobah', 'Hoth'];\ncy.getByTestId(_dataTestIds.PLANET_NAME).each((el, index) => {\n  if (expectedPlanets[index]) {\n    expect(el).to.contain(expectedPlanets[index]);\n  } else {\n    expect(el.text()).to.be.oneOf(expectedPlanetsWithUnknownValues);\n  }\n});",
+              "err": {},
+              "uuid": "77c548cc-bc5a-4f18-a6fe-06caa488f4ff",
+              "parentUUID": "9ec77ea7-eabf-4080-aabd-baca132a234a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "60f625fb-dd51-4d6d-bc51-53bcec4f6d70",
+            "f055177b-ed4c-4351-a8dc-76fdece7675e",
+            "6fabb2d0-0750-4a5a-a4e8-0fd1bf828ba2",
+            "77c548cc-bc5a-4f18-a6fe-06caa488f4ff"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1847,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

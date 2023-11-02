@@ -1,0 +1,156 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2023-06-01T21:34:51.325Z",
+    "end": "2023-06-01T21:35:27.055Z",
+    "duration": 35730,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5a7fffc2-a56c-469b-846f-446236e56e70",
+      "title": "",
+      "fullFile": "cypress/e2e/07.deleteFilters.cy.js",
+      "file": "cypress/e2e/07.deleteFilters.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8da9ce71-8505-4469-b5e5-1787459b89d2",
+          "title": "7 - Apague um filtro de valor numérico ao clicar no ícone de X de um dos filtros e apague todas filtragens numéricas simultaneamente ao clicar em outro botão de Remover todas filtragens",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Adicione um filtro e verifique se a tabela foi atualizada com as informações filtradas, depois remova o filtro e verifique se os valores da tabela voltaram ao original",
+              "fullTitle": "7 - Apague um filtro de valor numérico ao clicar no ícone de X de um dos filtros e apague todas filtragens numéricas simultaneamente ao clicar em outro botão de Remover todas filtragens Adicione um filtro e verifique se a tabela foi atualizada com as informações filtradas, depois remova o filtro e verifique se os valores da tabela voltaram ao original",
+              "timedOut": null,
+              "duration": 11022,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('table tr').should('have.length', TOTAL_ROWS_COUNT);\ncy.addFilter('diameter', 'maior que', '8900');\ncy.get('table tr').should('have.length', FILTERED_ROWS_COUNT);\nremoveFilter(DIAMETER_FILTER_INDEX);\ncy.get('table tr').should('have.length', TOTAL_ROWS_COUNT);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Too many elements found. Found '9', expected '8'.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Too many elements found. Found '9', expected '8'.\n    at Context.eval (webpack:///./cypress/e2e/07.deleteFilters.cy.js:33:23)",
+                "diff": "- 9\n+ 8\n"
+              },
+              "uuid": "e3086407-db8c-4097-959d-fcfb318e5524",
+              "parentUUID": "8da9ce71-8505-4469-b5e5-1787459b89d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adicione dois filtros e verifique se a tabela foi atualizada com as informações filtradas, depois remova os filtros e verifique se os valores da tabela voltaram ao original",
+              "fullTitle": "7 - Apague um filtro de valor numérico ao clicar no ícone de X de um dos filtros e apague todas filtragens numéricas simultaneamente ao clicar em outro botão de Remover todas filtragens Adicione dois filtros e verifique se a tabela foi atualizada com as informações filtradas, depois remova os filtros e verifique se os valores da tabela voltaram ao original",
+              "timedOut": null,
+              "duration": 11472,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('table tr').should('have.length', TOTAL_ROWS_COUNT);\ncy.addFilter('diameter', 'maior que', '8900');\ncy.addFilter('population', 'menor que', '1000000');\ncy.get('table tr').should('have.length', DOUBLE_FILTERED);\nremoveFilter(POPULATION_FILTER_INDEX);\ncy.get('table tr').should('have.length', FILTERED_ROWS_COUNT);\nremoveFilter(DIAMETER_FILTER_INDEX);\ncy.get('table tr').should('have.length', TOTAL_ROWS_COUNT);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Too many elements found. Found '9', expected '3'.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Too many elements found. Found '9', expected '3'.\n    at Context.eval (webpack:///./cypress/e2e/07.deleteFilters.cy.js:46:23)",
+                "diff": "- 9\n+ 3\n"
+              },
+              "uuid": "7675bab1-129d-4cb8-8616-15c96ef5fc7c",
+              "parentUUID": "8da9ce71-8505-4469-b5e5-1787459b89d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adicione três filtros e clique no botão Remover Filtragens, todos os filtros deverão ser removidos",
+              "fullTitle": "7 - Apague um filtro de valor numérico ao clicar no ícone de X de um dos filtros e apague todas filtragens numéricas simultaneamente ao clicar em outro botão de Remover todas filtragens Adicione três filtros e clique no botão Remover Filtragens, todos os filtros deverão ser removidos",
+              "timedOut": null,
+              "duration": 12183,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('table tr').should('have.length', TOTAL_ROWS_COUNT);\ncy.addFilter('diameter', 'maior que', '8900');\ncy.addFilter('population', 'menor que', '1000000');\ncy.addFilter('rotation_period', 'igual a', '23');\ncy.get('table tr').should('have.length', TRIPLE_FILTERED);\ncy.getByTestId(_dataTestIds.BUTTON_REMOVE_FILTERS).click();\ncy.get('table tr').should('have.length', TOTAL_ROWS_COUNT);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Too many elements found. Found '3', expected '2'.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Too many elements found. Found '3', expected '2'.\n    at Context.eval (webpack:///./cypress/e2e/07.deleteFilters.cy.js:64:23)",
+                "diff": "- 3\n+ 2\n"
+              },
+              "uuid": "197154f7-451c-4399-83c3-0c6aa112a779",
+              "parentUUID": "8da9ce71-8505-4469-b5e5-1787459b89d2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e3086407-db8c-4097-959d-fcfb318e5524",
+            "7675bab1-129d-4cb8-8616-15c96ef5fc7c",
+            "197154f7-451c-4399-83c3-0c6aa112a779"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 34677,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

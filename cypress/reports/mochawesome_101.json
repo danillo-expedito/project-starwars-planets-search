@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-06-02T22:30:21.033Z",
+    "end": "2023-06-02T22:30:25.542Z",
+    "duration": 4509,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0d4048ca-82fe-4bef-8eb7-b9b70436102f",
+      "title": "",
+      "fullFile": "cypress/e2e/06.repeatedFilters.cy.js",
+      "file": "cypress/e2e/06.repeatedFilters.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6ac0c84b-9631-426a-892c-9f083c40577a",
+          "title": "6 - Não utilize filtros repetidos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Filtre por diâmetro e o remove das opções",
+              "fullTitle": "6 - Não utilize filtros repetidos Filtre por diâmetro e o remove das opções",
+              "timedOut": null,
+              "duration": 1105,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const allColumnsOptions = ['population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water'];\ncy.getByTestId(_dataTestIds.COLUMN_FILTER).find('option').should(options => {\n  expect(options).to.have.length(allColumnsOptions.length);\n  allColumnsOptions.forEach(option => {\n    expect(options).to.contain(option);\n  });\n});\ncy.addFilter('diameter', 'maior que', '12240');\ncy.get('table tr').should('have.length', FILTERED_ROWS_COUNT_DIAMETER);\ncy.getByTestId(_dataTestIds.COLUMN_FILTER).find('option').should(options => {\n  expect(options).to.have.length(allColumnsOptions.length - 1);\n  expect(options).to.not.contain('diameter');\n});",
+              "err": {},
+              "uuid": "df09af35-b6e9-4c0a-9ea8-e992a2c890b7",
+              "parentUUID": "6ac0c84b-9631-426a-892c-9f083c40577a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Filtre por período de rotação e o remove das opções",
+              "fullTitle": "6 - Não utilize filtros repetidos Filtre por período de rotação e o remove das opções",
+              "timedOut": null,
+              "duration": 835,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const allColumnsOptions = ['population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water'];\ncy.getByTestId(_dataTestIds.COLUMN_FILTER).find('option').should(options => {\n  expect(options).to.have.length(allColumnsOptions.length);\n  allColumnsOptions.forEach(option => {\n    expect(options).to.contain(option);\n  });\n});\ncy.addFilter('rotation_period', 'maior que', '25');\ncy.get('table tr').should('have.length', FILTERED_ROWS_COUNT_ROTATION_PERIOD);\ncy.getByTestId(_dataTestIds.COLUMN_FILTER).find('option').should(options => {\n  expect(options).to.have.length(allColumnsOptions.length - 1);\n  expect(options).to.not.contain('rotation_period');\n});",
+              "err": {},
+              "uuid": "4f380d3f-6a3d-4991-88bf-8c3b86c88d14",
+              "parentUUID": "6ac0c84b-9631-426a-892c-9f083c40577a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Filtre por período de órbita e o remove das opções",
+              "fullTitle": "6 - Não utilize filtros repetidos Filtre por período de órbita e o remove das opções",
+              "timedOut": null,
+              "duration": 837,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const allColumnsOptions = ['population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water'];\ncy.getByTestId(_dataTestIds.COLUMN_FILTER).find('option').should(options => {\n  expect(options).to.have.length(allColumnsOptions.length);\n  allColumnsOptions.forEach(option => {\n    expect(options).to.contain(option);\n  });\n});\ncy.addFilter('orbital_period', 'maior que', '350');\ncy.get('table tr').should('have.length', FILTERED_ROWS_COUNT_ORBITAL_PERIOD);\ncy.getByTestId(_dataTestIds.COLUMN_FILTER).find('option').should(options => {\n  expect(options).to.have.length(allColumnsOptions.length - 1);\n  expect(options).to.not.contain('orbital_period');\n});",
+              "err": {},
+              "uuid": "df6eb474-1e81-4f79-a993-47f7c3e4936c",
+              "parentUUID": "6ac0c84b-9631-426a-892c-9f083c40577a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Filtre por superfície aquática e o remove das opções",
+              "fullTitle": "6 - Não utilize filtros repetidos Filtre por superfície aquática e o remove das opções",
+              "timedOut": null,
+              "duration": 837,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const allColumnsOptions = ['population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water'];\ncy.getByTestId(_dataTestIds.COLUMN_FILTER).find('option').should(options => {\n  expect(options).to.have.length(allColumnsOptions.length);\n  allColumnsOptions.forEach(option => {\n    expect(options).to.contain(option);\n  });\n});\ncy.addFilter('surface_water', 'maior que', '99');\ncy.get('table tr').should('have.length', FILTERED_ROWS_COUNT_SURFACE_WATER);\ncy.getByTestId(_dataTestIds.COLUMN_FILTER).find('option').should(options => {\n  expect(options).to.have.length(allColumnsOptions.length - 1);\n  expect(options).to.not.contain('surface_water');\n});",
+              "err": {},
+              "uuid": "69e89a82-0cea-4cec-ae14-98c6a499420c",
+              "parentUUID": "6ac0c84b-9631-426a-892c-9f083c40577a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "df09af35-b6e9-4c0a-9ea8-e992a2c890b7",
+            "4f380d3f-6a3d-4991-88bf-8c3b86c88d14",
+            "df6eb474-1e81-4f79-a993-47f7c3e4936c",
+            "69e89a82-0cea-4cec-ae14-98c6a499420c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3614,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
